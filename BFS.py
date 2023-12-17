@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 adjacent = []
 visited = []
 path = []
