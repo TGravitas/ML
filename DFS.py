@@ -1,3 +1,5 @@
+import timeit
+
 adjacent = []
 visited =[]
 path = []
@@ -32,9 +34,9 @@ def dfs(start, end):
       return
     for i in range(n):
       if adjacent[current][i] == 1 and not visited[i]:
+        print(queue,i)
         queue.append(i)
         visited[i] = True
-        break
   print("Path does not exist from {} to {}".format(start, end))
 
 n = int(input("Enter the number of nodes: "))
@@ -43,3 +45,7 @@ fill()
 print(adjacent)
 start_node = int(input("Enter the start node: "))
 end_node = int(input("Enter the end node: "))
+
+# Measure time taken to perform DFS
+dfs_time = timeit.timeit(stmt=lambda: dfs(start_node, end_node), number=1)
+print(f"Time taken for DFS: {dfs_time:.6f} seconds")
